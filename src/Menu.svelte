@@ -1,17 +1,14 @@
 <script>
     import { trocarEstadoDoJogo } from './Estado.js';
 
-    function reproduzirMusica() {
-        const audio = new Audio('https://65381g.ha.azioncdn.net/f/3/0/a/mobiloes-bomba-patch-f3607330.mp3');
-        audio.play();
-    }
+    console.log('teste');
 </script>
 
 <main>
     <div class="background">
         <div class="container">
             <h1 style="font-family: 'YourFont', sans-serif; color: white;">Score hero</h1>
-            <button on:click={() => {trocarEstadoDoJogo("jogar"); reproduzirMusica();}} class="jogar">Jogar</button>
+            <button on:click={() => {trocarEstadoDoJogo("jogar"); }} class="jogar">Jogar</button>
         </div>
         <div class="container">
             <button on:click={() => trocarEstadoDoJogo("sobre")}>Sobre</button>
