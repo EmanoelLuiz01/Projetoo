@@ -12,7 +12,7 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-gap: 10px;
+      grid-gap: 20px;
     }
   
       .transparent-button {
@@ -21,13 +21,17 @@
         color: green;
         padding: 10px;
         cursor: pointer;
-			  width: 190px;
-        height: 110px;
-        font-size: 16px;
+			  width: 270px;
+        height: 170px;
+        font-size: 30px;
     }
   </style>
   
   <script>
+    import { trocarEstadoDoJogo } from "./Estado";
+    import Menu from "./Menu.svelte";
+    import Voltarmenu from "./voltarmenu.svelte";
+
     let buttons = [
       {
         text: ''
@@ -51,6 +55,17 @@
         text: ''
       },
       {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },{
         text: ''
       },
     ];
@@ -117,8 +132,10 @@
           {/each}
         </div>
       {:else}
-        <button on:click={reiniciarJogo}>Tente denovo</button>
-      {/if}
+        <button on:click={reiniciarJogo}>Tente de novo</button>
+        <button on:click={() => trocarEstadoDoJogo("menu")}>Voltar ao menu</button>
+     {/if}
+     
     </div>
   </main>
   
