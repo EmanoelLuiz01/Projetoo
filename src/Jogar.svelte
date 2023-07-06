@@ -7,31 +7,50 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding-top:115px;
     }
-  
+
     .grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-gap: 20px;
+      grid-gap: 0px;
     }
   
       .transparent-button {
         background-color: transparent;
-        border: 2px solid green;
+        border: 1px solid transparent;
         color: green;
         padding: 10px;
         cursor: pointer;
-			  width: 270px;
-        height: 170px;
-        font-size: 30px;
+			  width: 325px;
+        height: 148px;
+        font-size: 0px;
     }
+    
   </style>
   
   <script>
+    import { onMount } from 'svelte';
     import { trocarEstadoDoJogo } from "./Estado";
     import Menu from "./Menu.svelte";
     import Voltarmenu from "./voltarmenu.svelte";
+    const audio = new Audio('https://65381g.ha.azioncdn.net/f/3/0/a/mobiloes-bomba-patch-f3607330.mp3');
 
+    onMount(async () => {
+      console.log('on mount');
+      audio.play();
+    });
+
+    function reproduzirMusica() {
+      console.log('play');
+      audio.play(); 
+    }
+
+    function pausarMusica() {
+      console.log('pause');
+      audio.pause(0);
+    }
+    //reproduzirMusica();
     let buttons = [
       {
         text: ''
@@ -74,7 +93,7 @@
     let tentativas = 5;
   
     function shoot() {
-      const result = Math.random() < 0.5; // Simula o chute do jogador
+      const result = Math.random() < 0.1; // Simula o chute do jogador
   
       if (result) {
         pontos += 1;
@@ -96,31 +115,43 @@
       tentativas = 5;
       buttons = [
         {
-          text: ''
-        },
-        {
-          text: ''
-        },
-        {
-          text: ''
-        },
-        {
-          text: ''
-        },
-        {
-          text: ''
-        },
-        {
-          text: ''
-        },
-        {
-          text: ''
-        },
-        {
-          text: ''
-        },
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },
+      {
+        text: ''
+      },{
+        text: ''
+      },
       ]; // Restaurar os botões
     }
+    
   </script>
   
   <main>
@@ -133,7 +164,11 @@
         </div>
       {:else}
         <button on:click={reiniciarJogo}>Tente de novo</button>
-        <button on:click={() => trocarEstadoDoJogo("menu")}>Voltar ao menu</button>
+        <button on:click={() => {
+          trocarEstadoDoJogo("menu");
+          pausarMusica();
+          }
+        }>Voltar ao menu</button>
      {/if}
      
     </div>
