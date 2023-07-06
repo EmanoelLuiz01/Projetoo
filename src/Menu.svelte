@@ -10,7 +10,7 @@
 <main>
     <div class="background">
         <div class="container">
-            <h1 style="font-family: 'YourFont', sans-serif; color: white;">pênalti</h1>
+            <h1 style="font-family: 'YourFont', sans-serif; color: white;">Score hero</h1>
             <button on:click={() => {trocarEstadoDoJogo("jogar"); reproduzirMusica();}} class="jogar">Jogar</button>
         </div>
         <div class="container">
