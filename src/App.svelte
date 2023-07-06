@@ -3,6 +3,7 @@
 	import Sobre from "./Sobre.svelte";
 	import { estado } from "./Estado.js";
     import Menu from "./Menu.svelte";
+	console.log('app svelte');
 </script>
 
 {#if $estado == "jogar"}
