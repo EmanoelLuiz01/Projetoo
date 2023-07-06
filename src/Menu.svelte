@@ -1,14 +1,17 @@
-
-<h1>Jogo</h1>
-
 <script>
-	import { trocarEstadoDoJogo } from './Estado.js';
+    import { trocarEstadoDoJogo } from './Estado.js';
+
+    function reproduzirMusica() {
+        const audio = new Audio('https://65381g.ha.azioncdn.net/f/3/0/a/mobiloes-bomba-patch-f3607330.mp3');
+        audio.play();
+    }
 </script>
 
 <main>
     <div class="background">
         <div class="container">
-            <button on:click={() => trocarEstadoDoJogo("jogar")} class="jogar">Jogar</button>
+            <h1 style="font-family: 'YourFont', sans-serif; color: white;">pênalti</h1>
+            <button on:click={() => {trocarEstadoDoJogo("jogar"); reproduzirMusica();}} class="jogar">Jogar</button>
         </div>
         <div class="container">
             <button on:click={() => trocarEstadoDoJogo("sobre")}>Sobre</button>
@@ -18,7 +21,9 @@
 
 <style>
     .background {
-        background-color: green;
+        background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20220512/pngtree-soccer-football-championship-vector-background-with-sports-ball-and-goals-image_1192381.jpg");
+        background-size: cover;
+        background-position: center;
         height: 100vh;
         display: flex;
         flex-direction: column;
@@ -34,4 +39,3 @@
         margin-bottom: 10px;
     }
 </style>
-
