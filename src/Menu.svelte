@@ -11,37 +11,28 @@
             <button on:click={() => {trocarEstadoDoJogo("jogar"); }} class="jogar">Jogar</button>
         </div>
         <div class="container">
-            <button on:click={() => {trocarEstadoDoJogo("sobre");}} class = "Sobre">Sobre</button>
+            <button on:click={() => trocarEstadoDoJogo("sobre")}>Sobre</button>
         </div>
     </div>
 </main>
 
 <style>
     .background {
-      background-image: url("https://img.quizur.com/f/img5c633775e6dd31.52777503.jpg?lastEdited=1550006143");
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20220512/pngtree-soccer-football-championship-vector-background-with-sports-ball-and-goals-image_1192381.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-  
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 10px;
-    }
-    
 
-  
- .Sobre{
-   
-    color: black;
- }
-    .jogar {  
-        color: black;
+    .container {
+        text-align: center;
     }
-   
-    
+
+    .jogar {
+        margin-bottom: 10px;
+    }
 </style>
