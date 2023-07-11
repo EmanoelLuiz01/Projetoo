@@ -4,10 +4,10 @@
     import Menu from "./Menu.svelte";
     import Voltarmenu from "./voltarmenu.svelte";
     const audio = new Audio('https://65381g.ha.azioncdn.net/f/3/0/a/mobiloes-bomba-patch-f3607330.mp3');
+    
+    let src = ``
 
-    let src = ''
-
-    let goalkeepDirection = ''
+    let goalkeepDirection = " "
 
     let canShoot = true
 
@@ -31,49 +31,55 @@
    
     let pontos = 0;
     let tentativas = 5;
-  
+    
+    
     function shoot(p) {
       canShoot = false
 
       let shootPosition = p
 
       let goalKeep = Math.floor(Math.random() * 3) // Simula o chute do jogador
-
-      console.log(shootPosition, goalKeep)
-  
+      
+      
       if (shootPosition != goalKeep) {
         pontos += 1
         result = "Gooooooooool!"
+        src = "images/gol.gif"
+        goalkeepDirection = "gol"
+        
         
       } else {
-        if (shootPosition == 0 && goalKeep == 0) {
+       if (shootPosition == 0 && goalKeep == 0) {
           src = "images/goalkeep-left.gif"
           goalkeepDirection = "goalkeep-left"
         } else if (shootPosition == 1 && goalKeep == 1) {
-          src = ''
-          goalkeepDirection = ''
+          src = " images/goalkeep-centro.gif"
+          goalkeepDirection = " goalkeep-centro"
         } else {
           src = "images/goalkeep-right.gif"
           goalkeepDirection = "goalkeep-rigth"
         }
       }
-
+     
       tentativas -= 1;
-
       if (tentativas === 0) {
         alert("Fim de jogo. Pontuação final: " + pontos);
       }
+
+      
 
       setTimeout(() => {
         alert("Clique OK para ir para o próximo chute!")
 
         canShoot = true
-        src = ''
-        goalkeepDirection = ''
+        src = " " 
+        goalkeepDirection = " "
         result = "Aguardando chute!"
-      }, 2000)
+      }, 1000)
+     
     }
-
+    
+      
     function reiniciarJogo() {
       pontos = 0;
       tentativas = 5;   
@@ -131,7 +137,7 @@
       grid-template-columns: repeat(3, 1fr);
       position: relative;
     }
-
+    
     .goalkeep-rigth {
       height: 100%;
       width: 100%;
@@ -147,9 +153,23 @@
       display: flex;
       justify-content: start;
     }
+    .goalkeep-centro {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
     
+    }
     .goalkeep-img {
       width: 60%;
+    }
+    .gol {
+      height: 100%;
+      width: 80%;
+      position: absolute;
+      display: flex;
+      justify-content: space-around;
     }
 
     .posicao-0 {
@@ -182,11 +202,15 @@
     }
 
     .posicao-0, .posicao-1, .posicao-2 {
-      background-color: brown;
+      background-color: rgb(177, 177, 177);
       height: 100%;
       margin: 0;
       padding: 0;
     }
     
+  
+    
+    
+
   </style>
   
